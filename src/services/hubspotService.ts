@@ -13,9 +13,7 @@ const hubspotAPI = axios.create({
 });
 
 export const createContact = async (contactData: ContactData) => {
-  const response = await hubspotAPI.post("", {
-    contactData,
-  });
+  const response = await hubspotAPI.post("", contactData);
   return response.data;
 };
 
@@ -28,9 +26,7 @@ export const updateContact = async (
   contactId: string,
   contactData: ContactData
 ) => {
-  const response = await hubspotAPI.patch(`/${contactId}`, {
-    ...contactData,
-  });
+  const response = await hubspotAPI.patch(`/${contactId}`, contactData);
   return response.data;
 };
 
